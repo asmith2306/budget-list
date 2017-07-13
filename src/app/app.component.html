@@ -1,13 +1,16 @@
 <div class="toolbarContainer">
     <md-toolbar color="primary">
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-            <div>Shopping List</div>
+        <div fxLayout="row" style="width:100%;">
+            <div fxFlex>Shopping List</div>
+            <div fxLayout="row" fxLayoutAlign="end">
+                {{toolbarTotal}}                
+            </div>
         </div>
     </md-toolbar>
 </div>
 
 <div class="contentContainer">
-    <app-item-card-list></app-item-card-list>
+    <app-item-card-list (itemTotalEmitter)="updateToolbarTotal($event)"></app-item-card-list>
 </div>
 
 

@@ -1,19 +1,27 @@
-import { Item } from '../models/item';
-import { Component, OnInit, Input } from '@angular/core';
+import {Item} from 'app/models/item';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
-  selector: 'app-item-card',
-  templateUrl: './item-card.component.html',
-  styleUrls: ['./item-card.component.css']
+    selector: 'app-item-card',
+    templateUrl: './item-card.component.html',
+    styleUrls: ['./item-card.component.css']
 })
 export class ItemCardComponent implements OnInit {
 
-  @Input()
-  item: Item;
+    @Input()
+    item: Item;
 
-  constructor() { }
+    @Output()
+    itemDeletedEmitter: EventEmitter<string> = new EventEmitter<string>();
 
-  ngOnInit() {
-  }
+    constructor() {}
+
+    ngOnInit() {
+    }
+
+    onDeleteButtonClicked() {
+        this.itemDeletedEmitter.emit(this.item.name);
+    }
+
 
 }

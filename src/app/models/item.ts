@@ -1,9 +1,8 @@
 export class Item {
-  name: string;
-  price: number;
+    name: string;
+    price: number;
 
-  constructor(name:string, price:number) {
-    this.name = name;
-    this.price = price;
-  }
+    getFormattedPrice(): string {
+        return Number(this.price).toFixed(2);
+    }
 }

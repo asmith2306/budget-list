@@ -1,5 +1,6 @@
 .item-card {
     margin-top: 10px;
+    height: 100px;
 }
 .item-price {
     font-size: 2.5em;

@@ -1,8 +1,8 @@
 <div fxLayout="row" fxLayoutWrap fxLayoutGap="5px" fxLayoutAlign="space-between center">
     <div fxFlex="0 0 49%" fxFlex.xs="0 0 100%" *ngFor="let item of items; let i = index">
-         <app-item-card [item]="item"></app-item-card>
+         <app-item-card [item]="item" (itemDeletedEmitter)="removeItem($event)"></app-item-card>
     </div>
 </div>
 
-<button class="add-item-button" color="primary" md-fab><md-icon>add</md-icon></button>
+<button class="add-item-button" color="primary" md-fab (click)="addItem()"><md-icon>add</md-icon></button>
 
