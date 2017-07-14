@@ -1,7 +1,7 @@
 import {Item} from 'app/models/item';
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
-import {MdDialog, MdDialogRef} from '@angular/material';
-import {AddItemDialogComponent} from "app/add-item-dialog/add-item-dialog.component";
+import {MdDialog} from '@angular/material';
+import {AddItemDialogComponent} from "./add-item-dialog/add-item-dialog.component";
 
 @Component({
     selector: 'app-item-card-list',
@@ -18,6 +18,10 @@ export class ItemCardListComponent implements OnInit {
     constructor(private dialog: MdDialog) {}
 
     ngOnInit() {
+        let item = new Item();
+        item.name = "item";
+        item.price = 9.99;
+        this.items.push(item);
     }
 
     removeItem(itemName: string) {
@@ -39,10 +43,12 @@ export class ItemCardListComponent implements OnInit {
         });
     }
 
-    private doTotals() {
+    public doTotals() {
         let tempTotal: number = 0;
         this.items.forEach(item => {
-            tempTotal += item.price;
+            if (item.collected) {
+                tempTotal += item.price;
+            }
         });
         this.itemTotalEmitter.emit(tempTotal);
     }

@@ -8,16 +8,19 @@ import 'hammerjs';
 import {AppComponent} from './app.component';
 import {ItemCardComponent} from './item-card/item-card.component';
 import {ItemCardListComponent} from './item-card-list/item-card-list.component';
-import {AddItemDialogComponent} from './add-item-dialog/add-item-dialog.component';
+import {AddItemDialogComponent} from './item-card-list/add-item-dialog/add-item-dialog.component';
+import {EditItemDialogComponent} from './item-card/edit-item-dialog/edit-item-dialog.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         ItemCardComponent,
         ItemCardListComponent,
-        AddItemDialogComponent
+        AddItemDialogComponent,
+        EditItemDialogComponent,
+        EditItemDialogComponent
     ],
-    entryComponents: [AddItemDialogComponent],
+    entryComponents: [AddItemDialogComponent, EditItemDialogComponent],
     imports: [
         BrowserModule,
         FlexLayoutModule,

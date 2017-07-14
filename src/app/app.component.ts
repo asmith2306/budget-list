@@ -9,7 +9,7 @@ export class AppComponent implements OnInit {
     toolbarTotal: string;
 
     ngOnInit() {
-        //this.toolbarTotal = 10.00;
+        this.toolbarTotal = "0.00";
     }
 
     updateToolbarTotal(total: number) {

@@ -4,7 +4,6 @@ import {MdDialogRef} from '@angular/material';
 
 import {Item} from 'app/models/item';
 
-
 @Component({
     selector: 'app-add-item-dialog',
     templateUrl: './add-item-dialog.component.html',
@@ -13,7 +12,7 @@ import {Item} from 'app/models/item';
 export class AddItemDialogComponent implements OnInit {
 
     item: Item;
-
+    
     itemForm: FormGroup;
 
     constructor(private fb: FormBuilder, private dialogRef: MdDialogRef<AddItemDialogComponent>) {}

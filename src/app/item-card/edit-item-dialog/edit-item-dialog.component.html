@@ -1,0 +1,13 @@
+<h2>Edit Item</h2>
+<form [formGroup]="itemForm" novalidate>
+    <md-input-container>
+        <input mdInput placeholder="Name" formControlName="name">
+    </md-input-container>
+    <br/>
+    <md-input-container>
+        <input mdInput placeholder="Price" formControlName="price">
+    </md-input-container>
+</form>
+<div fxLayout fxLayoutAlign="end">
+    <button class="done-button" md-button (click)="done()"><md-icon>done</md-icon></button>
+</div>
