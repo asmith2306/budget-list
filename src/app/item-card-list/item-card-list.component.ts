@@ -1,5 +1,5 @@
 import {Item} from 'app/models/item';
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, HostListener} from '@angular/core';
 import {MdDialog} from '@angular/material';
 import {AddItemDialogComponent} from "./add-item-dialog/add-item-dialog.component";
 
@@ -10,7 +10,7 @@ import {AddItemDialogComponent} from "./add-item-dialog/add-item-dialog.componen
 })
 export class ItemCardListComponent implements OnInit {
 
-    items = new Array<Item>();
+    items: Array<Item>;
 
     @Output()
     itemTotalEmitter: EventEmitter<number> = new EventEmitter<number>();
@@ -18,10 +18,17 @@ export class ItemCardListComponent implements OnInit {
     constructor(private dialog: MdDialog) {}
 
     ngOnInit() {
-        let item = new Item();
-        item.name = "item";
-        item.price = 9.99;
-        this.items.push(item);
+        this.items = JSON.parse(localStorage.getItem("items"));
+        console.log(this.items);
+        if (null === this.items) {
+            this.items = new Array<Item>();
+        }
+    }
+
+    @HostListener('window:beforeunload', ['$event'])
+    doSomething($event) {
+        // Put the items into storage on page close or refresh
+        localStorage.setItem("items", JSON.stringify(this.items));
     }
 
     removeItem(itemName: string) {

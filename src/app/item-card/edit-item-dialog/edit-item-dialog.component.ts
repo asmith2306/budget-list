@@ -1,8 +1,9 @@
 import {Component, OnInit, Inject} from '@angular/core';
-import {FormControl, FormGroup, FormBuilder} from '@angular/forms';
+import {FormGroup, FormBuilder} from '@angular/forms';
 import {MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
 
 import {Item} from 'app/models/item';
+import {NumberUtils} from 'app/utils/NumberUtills';
 
 @Component({
     selector: 'edit-add-item-dialog',
@@ -28,7 +29,7 @@ export class EditItemDialogComponent implements OnInit {
 
     done() {
         this.data.name = this.itemForm.get('name').value;
-        this.data.price = Number(this.itemForm.get('price').value);
+        this.data.price = NumberUtils.format2DecimalPlaces(this.itemForm.get('price').value);
         this.dialogRef.close();
     }
 }
