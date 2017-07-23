@@ -10,6 +10,7 @@ import {ItemCardComponent} from './item-card/item-card.component';
 import {ItemCardListComponent} from './item-card-list/item-card-list.component';
 import {AddItemDialogComponent} from './item-card-list/add-item-dialog/add-item-dialog.component';
 import {EditItemDialogComponent} from './item-card/edit-item-dialog/edit-item-dialog.component';
+import {LocalStorageModule} from 'angular-2-local-storage';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,10 @@ import {EditItemDialogComponent} from './item-card/edit-item-dialog/edit-item-di
         FlexLayoutModule,
         MaterialModule,
         BrowserAnimationsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        LocalStorageModule.withConfig({
+            storageType: 'localStorage'
+        })
     ],
     providers: [],
     bootstrap: [AppComponent]

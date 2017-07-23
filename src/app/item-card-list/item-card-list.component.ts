@@ -2,6 +2,8 @@ import {Item} from 'app/models/item';
 import {Component, OnInit, Output, EventEmitter, HostListener} from '@angular/core';
 import {MdDialog} from '@angular/material';
 import {AddItemDialogComponent} from "./add-item-dialog/add-item-dialog.component";
+import {LocalStorageService} from 'angular-2-local-storage';
+
 
 @Component({
     selector: 'app-item-card-list',
@@ -15,10 +17,10 @@ export class ItemCardListComponent implements OnInit {
     @Output()
     itemTotalEmitter: EventEmitter<number> = new EventEmitter<number>();
 
-    constructor(private dialog: MdDialog) {}
+    constructor(private dialog: MdDialog, private localStorageService: LocalStorageService) {}
 
     ngOnInit() {
-        this.items = JSON.parse(localStorage.getItem("items"));
+        this.items = JSON.parse(this.localStorageService.get<string>("items"));
         console.log(this.items);
         if (null === this.items) {
             this.items = new Array<Item>();
@@ -28,7 +30,7 @@ export class ItemCardListComponent implements OnInit {
     @HostListener('window:beforeunload', ['$event'])
     doSomething($event) {
         // Put the items into storage on page close or refresh
-        localStorage.setItem("items", JSON.stringify(this.items));
+        this.localStorageService.set("items", JSON.stringify(this.items));
     }
 
     removeItem(itemName: string) {
