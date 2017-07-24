@@ -1,5 +1,5 @@
 # shopping-app
-Simple Angular 2 app to use to keep track of shopping items
+Simple Angular 2 app to use to keep track of items
 # MyApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.2.
