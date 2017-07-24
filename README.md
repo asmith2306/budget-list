@@ -1,5 +1,5 @@
 # lister
-Simple Angular 2 app to use to keep track of items
+Simple Angular 2 app to use to keep track of items.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.2.
 
 ## Development server
