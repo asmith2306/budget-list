@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, FormBuilder} from '@angular/forms';
+import {FormGroup, FormBuilder} from '@angular/forms';
 import {MdDialogRef} from '@angular/material';
 
 import {Item} from 'app/models/item';
@@ -7,7 +7,7 @@ import {Item} from 'app/models/item';
 @Component({
     selector: 'app-add-item-dialog',
     templateUrl: './add-item-dialog.component.html',
-    styleUrls: ['./add-item-dialog.component.css']
+    styleUrls: ['./add-item-dialog.component.scss']
 })
 export class AddItemDialogComponent implements OnInit {
 

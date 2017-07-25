@@ -18,7 +18,6 @@ import {LocalStorageModule} from 'angular-2-local-storage';
         ItemCardComponent,
         ItemCardListComponent,
         AddItemDialogComponent,
-        EditItemDialogComponent,
         EditItemDialogComponent
     ],
     entryComponents: [AddItemDialogComponent, EditItemDialogComponent],

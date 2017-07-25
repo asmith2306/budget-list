@@ -8,7 +8,7 @@ import {NumberUtils} from 'app/utils/NumberUtills';
 @Component({
     selector: 'edit-add-item-dialog',
     templateUrl: './edit-item-dialog.component.html',
-    styleUrls: ['./edit-item-dialog.component.css']
+    styleUrls: ['./edit-item-dialog.component.scss']
 })
 export class EditItemDialogComponent implements OnInit {
 

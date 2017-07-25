@@ -4,11 +4,10 @@ import {MdDialog} from '@angular/material';
 import {AddItemDialogComponent} from "./add-item-dialog/add-item-dialog.component";
 import {LocalStorageService} from 'angular-2-local-storage';
 
-
 @Component({
     selector: 'app-item-card-list',
     templateUrl: './item-card-list.component.html',
-    styleUrls: ['./item-card-list.component.css']
+    styleUrls: ['./item-card-list.component.scss']
 })
 export class ItemCardListComponent implements OnInit {
 
@@ -21,15 +20,17 @@ export class ItemCardListComponent implements OnInit {
 
     ngOnInit() {
         this.items = JSON.parse(this.localStorageService.get<string>("items"));
-        console.log(this.items);
         if (null === this.items) {
             this.items = new Array<Item>();
         }
     }
 
-    @HostListener('window:beforeunload', ['$event'])
-    doSomething($event) {
-        // Put the items into storage on page close or refresh
+    @HostListener('window:beforeunload')
+    beforeUnload() {
+        // Put the items into storage on page close or refresh, toggle them off before doing so
+        this.items.forEach(item => {
+            item.collected = false;
+        })
         this.localStorageService.set("items", JSON.stringify(this.items));
     }
 
