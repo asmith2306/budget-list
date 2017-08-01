@@ -1,6 +1,6 @@
 import {Item} from 'app/models/item';
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {MdDialog} from '@angular/material';
+import {Component, OnInit, Input, Output, EventEmitter, ViewChild} from '@angular/core';
+import {MdDialog, MdSlideToggle} from '@angular/material';
 import {EditItemDialogComponent} from './edit-item-dialog/';
 
 @Component({
@@ -22,9 +22,15 @@ export class ItemCardComponent implements OnInit {
     @Output()
     itemEditedEmitter: EventEmitter<any> = new EventEmitter();
 
+    @ViewChild("slideToggle")
+    slideToggle: MdSlideToggle;
+    
     constructor(private dialog: MdDialog) {}
 
     ngOnInit() {
+        if (this.item.collected){
+            this.slideToggle.toggle();
+        }
     }
 
     onEditButtonClicked() {

@@ -2,7 +2,7 @@
     <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%">
         <div flex="0 0 50%" class="mat-headline item-name">{{item.name}}</div>
         <div flex="0 0 50%" style="margin-right: -.5em;">
-            <md-slide-toggle color="primary" class="mat-headline" (change)="doToggleChecked()"></md-slide-toggle>
+            <md-slide-toggle #slideToggle color="primary" class="mat-headline" (change)="doToggleChecked()"></md-slide-toggle>
         </div>
     </div>
     <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%">
