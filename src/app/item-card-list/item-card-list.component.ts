@@ -20,10 +20,10 @@ export class ItemCardListComponent implements OnInit {
 
     ngOnInit() {
         this.items = JSON.parse(this.localStorageService.get<string>("items"));
-        console.log(this.items);
         if (null === this.items) {
             this.items = new Array<Item>();
         }
+        this.doTotals();
     }
 
     @HostListener('window:beforeunload')
