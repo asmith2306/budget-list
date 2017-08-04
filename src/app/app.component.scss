@@ -1,6 +1,15 @@
+.toolbarDiv{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+}
+
 .contentContainer{
     width: 90%;
     margin: 0 auto;
+    position: relative;
+    top: 65px;
 }
 
 .total-icon {
