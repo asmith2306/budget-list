@@ -1,5 +1,5 @@
 <div fxLayout="row" fxLayoutWrap fxLayoutGap="5px" fxLayoutAlign="start center" style="margin-bottom: 100px;">
-    <div fxFlex="0 0 32%" fxFlex.xs="0 0 100%" *ngFor="let item of items; let i = index">
+    <div fxFlex="0 0 32%" fxFlex.xs="0 0 100%" *ngFor="let item of items; let i = index" [dragula]> <!-- the draggable messes up flex in desktop mode -->
          <app-item-card [item]="item" (itemDeletedEmitter)="removeItem($event)" (itemCollectedEmitter)="doTotals()" (itemEditedEmitter)="doTotals()"></app-item-card>
     </div>
 </div>

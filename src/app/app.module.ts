@@ -11,7 +11,7 @@ import {ItemCardListComponent} from './item-card-list/item-card-list.component';
 import {AddItemDialogComponent} from './item-card-list/add-item-dialog/add-item-dialog.component';
 import {EditItemDialogComponent} from './item-card/edit-item-dialog/edit-item-dialog.component';
 import {LocalStorageModule} from 'angular-2-local-storage';
-import {DragulaModule} from 'dragula';
+import {DragulaModule} from 'ng2-dragula';
 
 @NgModule({
     declarations: [
