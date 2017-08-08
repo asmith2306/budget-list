@@ -11,6 +11,7 @@ import {ItemCardListComponent} from './item-card-list/item-card-list.component';
 import {AddItemDialogComponent} from './item-card-list/add-item-dialog/add-item-dialog.component';
 import {EditItemDialogComponent} from './item-card/edit-item-dialog/edit-item-dialog.component';
 import {LocalStorageModule} from 'angular-2-local-storage';
+import {DragulaModule} from 'dragula';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import {LocalStorageModule} from 'angular-2-local-storage';
         ReactiveFormsModule,
         LocalStorageModule.withConfig({
             storageType: 'localStorage'
-        })
+        }),
+        DragulaModule
     ],
     providers: [],
     bootstrap: [AppComponent]
