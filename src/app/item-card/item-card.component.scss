@@ -1,12 +1,11 @@
 .item-card {
     margin-top: 10px;
-    height: 90px;
     padding-top: 10px;
     padding-bottom: 8px;
 }
 
 .item-name{
-    margin-left: 15px;
+  
 }
 
 .item-price {
@@ -17,6 +16,7 @@
     min-width: 0px; 
     line-height: 0px;  
     border-radius: 0px; 
+    right: -20px;
 }
 
 .edit-item-button {
@@ -28,4 +28,12 @@
 
 .item-collected {
     background-color: palegreen;
+}
+
+.slide-toggle-div{
+
+}
+
+.override-mat-button{
+    min-width: 0px;
 }

@@ -13,6 +13,6 @@ export class AppComponent implements OnInit {
     }
 
     updateToolbarTotal(total: number) {
-        this.toolbarTotal = Number(total).toFixed(2);
+        this.toolbarTotal = total.toFixed(2);
     }
 }

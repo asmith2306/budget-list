@@ -11,6 +11,8 @@ import {LocalStorageService} from 'angular-2-local-storage';
 })
 export class ItemCardListComponent implements OnInit {
 
+    private itemCounter = 0;
+
     items: Array<Item>;
 
     @Output()
@@ -39,26 +41,27 @@ export class ItemCardListComponent implements OnInit {
                 this.items.splice(i, 1);
             }
         }
+        this.itemCounter--;
         this.doTotals();
     }
 
     addItem() {
-        let dialogRef = this.dialog.open(AddItemDialogComponent);
-        dialogRef.disableClose = true;
-        dialogRef.afterClosed().subscribe(result => {
-            this.items.push(result);
-            this.doTotals();
-        });
+        let item: Item = new Item();
+        item.name = "item-" + this.itemCounter++;
+        item.price = 0; //need to investigate why this doesn't work in totals (produces NaN if no price defined)
+        this.items.push(item);
+        this.doTotals();
     }
 
     public doTotals() {
         let tempTotal: number = 0;
         this.items.forEach(item => {
-            if (item.collected) {
-                tempTotal += item.price;
+            if (item.collected && item.price != undefined) {
+                tempTotal += Number(item.price);
             }
         });
         this.itemTotalEmitter.emit(tempTotal);
+        this.itemCounter = this.items.length;
     }
 
 }

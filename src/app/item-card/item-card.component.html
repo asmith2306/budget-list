@@ -1,17 +1,27 @@
-<md-card class="item-card" [ngClass]="{'item-collected': item.collected===true}">
-    <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%">
-        <div flex="0 0 50%" class="mat-headline item-name">{{item.name}}</div>
-        <div flex="0 0 50%" style="margin-right: -.5em;">
-            <md-slide-toggle #slideToggle color="primary" class="mat-headline" (change)="doToggleChecked()"></md-slide-toggle>
+<form [formGroup]="itemForm" novalidate>
+    <md-card class="item-card" [ngClass]="{'item-collected': item.collected===true}">
+        <div fxLayout="row" fxLayoutGap="10px">
+            <div fxFlex="0 0 50">
+                <md-input-container>
+                    <input mdInput placeholder="Item name" value="{{item.name}}" name="itemName" formControlName="itemName">
+                </md-input-container>
+            </div>
+            <div fxFlex="0 0 30">
+                <md-input-container>
+                    <input mdInput placeholder="Item price" value="{{item.price}}" name="itemPrice" formControlName="itemPrice">
+                </md-input-container>
+            </div>
+            <div fxFlex="0 0 1"></div>
+            <div fxFlex="0 0 15">
+                <div fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+                    <div fxFlex fxFlexOffset="20px">
+                        <button md-button class="override-mat-button" (click)="onDeleteButtonClicked()"><md-icon>delete</md-icon></button>
+                    </div>
+                    <div fxFlex fxFlexOffset="20px">
+                        <md-slide-toggle #slideToggle color="primary" (change)="doToggleChecked()"></md-slide-toggle>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%">
-        <div flex="0 0 50%">
-            <span class="item-price">{{item.price}}</span>
-        </div>
-        <div flex="0 0 50%">
-            <button md-button class="delete-item-button" (click)="onDeleteButtonClicked()"><md-icon>delete</md-icon></button>
-            <button md-button class="edit-item-button" (click)="onEditButtonClicked()"><md-icon>edit</md-icon></button>
-        </div>
-    </div>
-</md-card>
+    </md-card>
+</form>
