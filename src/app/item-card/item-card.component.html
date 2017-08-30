@@ -3,22 +3,22 @@
         <div fxLayout="row" fxLayoutGap="10px">
             <div fxFlex="0 0 50">
                 <md-input-container>
-                    <input mdInput placeholder="Item name" value="{{item.name}}" name="itemName" formControlName="itemName">
+                    <input id="itemName" mdInput placeholder="Item name" value="{{item.name}}" name="itemName" formControlName="itemName">
                 </md-input-container>
             </div>
             <div fxFlex="0 0 30">
                 <md-input-container>
-                    <input mdInput placeholder="Item price" value="{{item.price}}" name="itemPrice" formControlName="itemPrice">
+                    <input id="itemPrice" mdInput placeholder="Item price" value="{{item.price}}" name="itemPrice" formControlName="itemPrice">
                 </md-input-container>
             </div>
             <div fxFlex="0 0 1"></div>
             <div fxFlex="0 0 15">
                 <div fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="10px">
                     <div fxFlex fxFlexOffset="20px">
-                        <button md-button class="override-mat-button" (click)="onDeleteButtonClicked()"><md-icon>delete</md-icon></button>
+                        <button md-button id="deleteButton" class="override-mat-button" (click)="onDeleteButtonClicked()"><md-icon>delete</md-icon></button>
                     </div>
                     <div fxFlex fxFlexOffset="20px">
-                        <md-slide-toggle #slideToggle color="primary" (change)="doToggleChecked()"></md-slide-toggle>
+                        <md-slide-toggle id="collectedToggle" #slideToggle color="primary" (change)="doToggleChecked()"></md-slide-toggle>
                     </div>
                 </div>
             </div>

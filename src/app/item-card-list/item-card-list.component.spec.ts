@@ -3,6 +3,8 @@ import {MaterialModule} from '@angular/material';
 import {ItemCardListComponent} from './item-card-list.component';
 import {ItemCardComponent} from 'app/item-card/item-card.component';
 import {LocalStorageService, ILocalStorageServiceConfig} from 'angular-2-local-storage';
+import {ReactiveFormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 describe('ItemCardListComponent', () => {
     let component: ItemCardListComponent;
@@ -14,7 +16,7 @@ describe('ItemCardListComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [ItemCardListComponent, ItemCardComponent],
-            imports: [MaterialModule],
+            imports: [MaterialModule, ReactiveFormsModule, BrowserAnimationsModule],
             providers: [{provide: LocalStorageService, useValue: mockLocalStorageService}]
         }).compileComponents();
     }));

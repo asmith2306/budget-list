@@ -5,6 +5,8 @@ import {AppComponent} from './app.component';
 import {ItemCardListComponent} from './item-card-list/item-card-list.component';
 import {ItemCardComponent} from './item-card/item-card.component';
 import {LocalStorageService, ILocalStorageServiceConfig} from 'angular-2-local-storage';
+import {ReactiveFormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 describe('AppComponent', () => {
     class MockStorage implements ILocalStorageServiceConfig {}
@@ -18,8 +20,8 @@ describe('AppComponent', () => {
                 ItemCardListComponent,
                 ItemCardComponent
             ],
-            imports: [MaterialModule],
-            providers: [{provide: LocalStorageService, useValue: mockLocalStorageService}] // not sure why we need this as it's not a direct dependency
+            imports: [MaterialModule, ReactiveFormsModule, BrowserAnimationsModule],
+            providers: [{provide: LocalStorageService, useValue: mockLocalStorageService}]
         }).compileComponents();
     }));
 
